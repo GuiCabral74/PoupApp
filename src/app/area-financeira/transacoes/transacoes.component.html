@@ -4,11 +4,11 @@
   </div>
 
   <div class="corpo-card">
-    <div class="transacoes-e-botao">
+    <div class="transacoes-e-botao" >
       <ul>
         @for (transacao of transacoes(); track transacao.id) {
           <li class="item-entre-divisorias">
-            <app-transacao [transacao]="transacao" />
+            <app-transacao [transacao]="transacao" appDestaqueValorNUmerico/>
           </li>
         } @empty {
           <li aria-hidden="true">
@@ -16,8 +16,11 @@
           </li>
         }
       </ul>
-  
-      <app-botao class="botao-adicionar-transacao" texto="Adicionar transação" />
+
+      <app-botao class="botao-adicionar-transacao" >
+        <img src="icones/moeda.svg" class="icone-moeda">
+        Adicionar Transação
+      </app-botao>
     </div>
   </div>
 </section>
