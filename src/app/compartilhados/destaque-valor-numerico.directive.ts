@@ -1,13 +1,22 @@
-import { afterRender, Directive, ElementRef } from '@angular/core';
+import { afterRender, Directive, ElementRef, input } from '@angular/core';
 
 @Directive ({
-  selector:'[appDestaqueValorNUmerico]'
+  selector:'[appDestaqueValorNumerico]'
 })
 export class DestaqueValorNumericoDirective {
+
+  appDestaqueValorNumerico =input.required<number>();
+
   constructor(elemento: ElementRef<HTMLElement>) {
     afterRender(() => {
-      elemento.nativeElement.style.color ="var(--destaque-receita)";
-      console.log(elemento);
+      if (this.appDestaqueValorNumerico() > 0) {
+        elemento.nativeElement.style.color ="var(--destaque-receita)";
+        console.log(this.appDestaqueValorNumerico());
+
+      } else if (this.appDestaqueValorNumerico() < 0) {
+        elemento.nativeElement.style.color ="var(--destaque-despesa)";
+        // console.log(this.appDestaqueValorNumerico());
+      }
 
     })
   }
