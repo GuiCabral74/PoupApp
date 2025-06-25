@@ -7,14 +7,17 @@ export class DestaqueValorNumericoDirective {
 
   appDestaqueValorNumerico =input.required<number>();
 
+  corPositiva = input("var(--destaque-receita)");
+  corNegativa = input("var(--destaque-despesa)");
+
   constructor(elemento: ElementRef<HTMLElement>) {
     afterRender(() => {
       if (this.appDestaqueValorNumerico() > 0) {
-        elemento.nativeElement.style.color ="var(--destaque-receita)";
+        elemento.nativeElement.style.color = this.corPositiva();
         console.log(this.appDestaqueValorNumerico());
 
       } else if (this.appDestaqueValorNumerico() < 0) {
-        elemento.nativeElement.style.color ="var(--destaque-despesa)";
+        elemento.nativeElement.style.color = this.corNegativa();
         // console.log(this.appDestaqueValorNumerico());
       }
 

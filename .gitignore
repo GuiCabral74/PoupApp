@@ -40,3 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+src/app/area-financeira/teste/teste.component.ts
+src/app/area-financeira/teste/teste.component.css
+src/app/area-financeira/teste/teste.component.html
